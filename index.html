@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fashion City · Main St Finest · Women's Boutique on Main, City of Orange NJ</title>
+<meta name="description" content="Fashion City, the Main St Finest. A women's clothing and accessory boutique at 167 Main St, City of Orange NJ. New looks every week, off the rack and ready to wear." />
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link href="https://api.fontshare.com/v2/css?f[]=melodrama@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#F6F1EA;
+    --paper-2:#EFE7DC;
+    --ink:#16110F;
+    --ink-soft:#534b44;
+    --accent:#D81E5B;
+    --accent-deep:#A8124A;
+    --line:rgba(22,17,15,.16);
+    --display:"Melodrama",Georgia,serif;
+    --body:"Satoshi",system-ui,-apple-system,sans-serif;
+    --maxw:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-weight:500;
+    line-height:1.55;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  ::selection{background:var(--accent);color:#fff}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .eyebrow{
+    font-size:.72rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--accent-deep);
+  }
+  .serif{font-family:var(--display);font-weight:500;line-height:.98;letter-spacing:-.01em}
+
+  /* ---------- focus ---------- */
+  a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* ============ NAV ============ */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:60;
+    background:rgba(246,241,234,.74);
+    backdrop-filter:saturate(140%) blur(12px);
+    -webkit-backdrop-filter:saturate(140%) blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, background .3s ease;
+  }
+  header.nav.scrolled{border-bottom-color:var(--line);background:rgba(246,241,234,.92)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .bk{font-family:var(--display);font-size:1.42rem;letter-spacing:-.01em}
+  .brand .bk em{font-style:italic;color:var(--accent-deep)}
+  .brand .sub{font-size:.56rem;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a.link{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;position:relative;padding:4px 0}
+  .nav-links a.link::after{content:"";position:absolute;left:0;bottom:-2px;height:1.5px;width:0;background:var(--accent);transition:width .28s ease}
+  .nav-links a.link:hover::after{width:100%}
+  .call{
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--accent);color:#fff;font-weight:700;
+    font-size:.82rem;letter-spacing:.04em;
+    padding:11px 20px;border-radius:999px;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .call:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .call svg{width:15px;height:15px;fill:currentColor}
+  .call .ct{white-space:nowrap}
+  @media(max-width:880px){
+    .nav-links{gap:0}
+    .nav-links a.link{display:none}
+    .call .ct{display:none}
+    .call{width:46px;height:46px;padding:0;justify-content:center}
+    .call svg{width:18px;height:18px}
+  }
+
+  /* ============ HERO ============ */
+  .hero{position:relative;padding:128px 0 60px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:end}
+  .hero-copy h1{font-family:var(--display);font-weight:500;font-size:clamp(3.1rem,8.4vw,6.6rem);line-height:.92;letter-spacing:-.018em}
+  .hero-copy h1 em{font-style:italic;color:var(--accent-deep)}
+  .hero-copy .lede{max-width:30ch;margin-top:24px;font-size:1.06rem;color:var(--ink-soft)}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--line);border-radius:999px;
+    padding:9px 15px;font-size:.78rem;font-weight:700;letter-spacing:.04em;background:rgba(255,255,255,.4)
+  }
+  .pill.status .dot{width:8px;height:8px;border-radius:50%;background:#9a9a9a;box-shadow:0 0 0 3px rgba(0,0,0,.05)}
+  .pill.status.open .dot{background:#1f9d55;box-shadow:0 0 0 3px rgba(31,157,85,.18)}
+  .pill.status.closed .dot{background:var(--accent);box-shadow:0 0 0 3px rgba(216,30,91,.18)}
+  .hero-actions{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:.86rem;letter-spacing:.05em;text-transform:uppercase;
+    padding:14px 24px;border-radius:999px;transition:transform .2s ease, background .2s, color .2s, border-color .2s;
+  }
+  .btn.solid{background:var(--ink);color:var(--paper)}
+  .btn.solid:hover{background:var(--accent);transform:translateY(-2px)}
+  .btn.ghost{border:1px solid var(--ink);color:var(--ink)}
+  .btn.ghost:hover{background:var(--ink);color:var(--paper);transform:translateY(-2px)}
+
+  .hero-frame{position:relative}
+  .hero-frame .shot{aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:var(--paper-2)}
+  .hero-frame .shot img{transition:transform 1.4s cubic-bezier(.16,1,.3,1)}
+  .hero-frame:hover .shot img{transform:scale(1.05)}
+  .hero-tag{
+    position:absolute;left:-14px;bottom:26px;background:var(--paper);
+    border:1px solid var(--line);padding:13px 18px;border-radius:3px;
+    box-shadow:0 18px 40px -24px rgba(22,17,15,.5)
+  }
+  .hero-tag .n{font-family:var(--display);font-size:1.3rem;line-height:1}
+  .hero-tag .s{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px}
+  @media(max-width:860px){
+    .hero{padding:108px 0 40px}
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero-frame{max-width:430px}
+  }
+
+  /* ============ marquee strip ============ */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink);color:var(--paper);overflow:hidden;margin-top:54px}
+  .marq{display:flex;white-space:nowrap;will-change:transform;animation:slide 28s linear infinite}
+  .marq span{font-family:var(--display);font-size:1.5rem;padding:16px 0;display:inline-flex;align-items:center}
+  .marq span b{color:var(--accent);font-weight:400;margin:0 26px;font-size:1rem}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){.marq{animation:none}}
+
+  /* ============ section heads ============ */
+  .sec{padding:96px 0}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px}
+  .sec-head h2{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,5.2vw,3.7rem);line-height:.98;letter-spacing:-.015em;max-width:16ch}
+  .sec-head h2 em{font-style:italic;color:var(--accent-deep)}
+  .sec-head .note{max-width:30ch;font-size:.96rem;color:var(--ink-soft)}
+
+  /* ============ LOOKBOOK PLATES (signature) ============ */
+  .plates{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .plate{
+    position:relative;aspect-ratio:3/4.35;border-radius:5px;overflow:hidden;background:var(--paper-2);
+    cursor:pointer;border:1px solid var(--line);
+  }
+  .plate .layer{position:absolute;inset:0}
+  .plate .base img{transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .plate .look{opacity:0;transform:scale(1.06);transition:opacity .55s ease, transform 1.1s cubic-bezier(.16,1,.3,1)}
+  .plate .look::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(22,17,15,.72) 0%,rgba(22,17,15,.05) 46%,transparent 70%)}
+  .plate .idx{
+    position:absolute;top:12px;left:13px;z-index:3;
+    font-size:.66rem;font-weight:700;letter-spacing:.16em;color:var(--ink);
+    background:var(--paper);padding:5px 9px;border-radius:3px;border:1px solid var(--line);
+    transition:color .4s ease, background .4s ease, border-color .4s
+  }
+  .plate .hint{
+    position:absolute;top:12px;right:13px;z-index:3;width:30px;height:30px;border-radius:50%;
+    border:1px solid var(--line);background:var(--paper);display:flex;align-items:center;justify-content:center;
+    transition:opacity .4s ease
+  }
+  .plate .hint::before,.plate .hint::after{content:"";position:absolute;background:var(--ink);transition:background .4s}
+  .plate .hint::before{width:11px;height:1.6px}
+  .plate .hint::after{width:1.6px;height:11px;transition:transform .4s, background .4s}
+  .plate .cap{
+    position:absolute;left:0;right:0;bottom:0;z-index:4;padding:18px 16px;color:#fff;
+    transform:translateY(112%);transition:transform .5s cubic-bezier(.16,1,.3,1)
+  }
+  .plate .cap .ttl{font-family:var(--display);font-size:1.5rem;line-height:1}
+  .plate .cap .meta{display:flex;align-items:center;gap:9px;margin-top:7px;font-size:.74rem;font-weight:700;letter-spacing:.04em}
+  .plate .cap .meta .price{color:#fff;background:var(--accent);padding:3px 9px;border-radius:999px}
+  .plate .cap .meta .swatch{font-weight:500;color:rgba(255,255,255,.82)}
+  /* active state via .is-on (hover on desktop, tap on touch) */
+  .plate.is-on .base img{transform:scale(1.04)}
+  .plate.is-on .look{opacity:1;transform:scale(1)}
+  .plate.is-on .idx{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .plate.is-on .hint{opacity:0}
+  .plate.is-on .hint::after{transform:rotate(90deg)}
+  .plate.is-on .cap{transform:translateY(0)}
+  @media(hover:hover){.plate:hover .base img{transform:scale(1.04)}.plate:hover .look{opacity:1;transform:scale(1)}.plate:hover .idx{background:var(--accent);color:#fff;border-color:var(--accent)}.plate:hover .hint{opacity:0}.plate:hover .cap{transform:translateY(0)}}
+  @media(max-width:980px){.plates{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.plates{grid-template-columns:1fr 1fr;gap:12px}.plate{aspect-ratio:3/4.2}.plate .cap .ttl{font-size:1.18rem}}
+
+  /* ============ EDIT / value band ============ */
+  .edit{background:var(--ink);color:var(--paper)}
+  .edit .sec-head h2{color:var(--paper)}
+  .edit .sec-head h2 em{color:#ff5e8f}
+  .edit .sec-head .note{color:rgba(246,241,234,.7)}
+  .edit-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+  .edit-list{display:grid;gap:0}
+  .edit-row{display:flex;gap:20px;padding:22px 0;border-top:1px solid rgba(246,241,234,.16)}
+  .edit-row:last-child{border-bottom:1px solid rgba(246,241,234,.16)}
+  .edit-row .num{font-family:var(--display);font-size:1.6rem;color:#ff5e8f;min-width:46px}
+  .edit-row h3{font-size:1.08rem;font-weight:700;letter-spacing:.01em;margin-bottom:5px}
+  .edit-row p{color:rgba(246,241,234,.66);font-size:.95rem;max-width:42ch}
+  .edit-shot{aspect-ratio:4/5;border-radius:5px;overflow:hidden;background:#241c19}
+  .edit-shot img{transition:transform 1.2s cubic-bezier(.16,1,.3,1)}
+  .edit-shot:hover img{transform:scale(1.05)}
+  @media(max-width:820px){.edit-grid{grid-template-columns:1fr;gap:30px}.edit-shot{max-width:420px;order:-1}}
+
+  /* ============ VISIT ============ */
+  .visit-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:40px;align-items:stretch}
+  .visit-card{display:flex;flex-direction:column;justify-content:center}
+  .info-list{margin-top:22px;display:grid;gap:2px;border-top:1px solid var(--line)}
+  .info-row{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+  .info-row .k{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);min-width:96px}
+  .info-row .v{font-size:1.02rem}
+  .info-row .v a:hover{color:var(--accent-deep)}
+  .hours-line{display:flex;justify-content:space-between;gap:14px;max-width:300px;padding:3px 0;font-size:.96rem}
+  .hours-line .d{color:var(--ink-soft)}
+  .today-mark{color:var(--accent-deep);font-weight:700}
+  .map-wrap{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line);min-height:380px;background:var(--paper-2)}
+  .map-wrap iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.18) contrast(1.02)}
+  @media(max-width:820px){.visit-grid{grid-template-columns:1fr;gap:28px}.map-wrap{min-height:320px}}
+
+  /* ============ FOOTER ============ */
+  footer.ft{background:var(--paper-2);border-top:1px solid var(--line);padding:64px 0 30px;margin-top:24px}
+  .ft-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;align-items:start}
+  .ft-brand .bk{font-family:var(--display);font-size:2rem;line-height:1}
+  .ft-brand .bk em{font-style:italic;color:var(--accent-deep)}
+  .ft-brand p{margin-top:12px;color:var(--ink-soft);max-width:34ch;font-size:.95rem}
+  .ft-col h4{font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+  .ft-col a,.ft-col p{display:block;font-size:.96rem;margin-bottom:9px;color:var(--ink)}
+  .ft-col a:hover{color:var(--accent-deep)}
+  .ft-cta{
+    display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;font-weight:700;
+    font-size:.84rem;letter-spacing:.03em;padding:12px 20px;border-radius:999px;margin-top:6px;transition:background .2s,transform .2s
+  }
+  .ft-cta:hover{background:var(--accent-deep);transform:translateY(-1px)}
+  .ft-cta svg{width:14px;height:14px;fill:currentColor}
+  .ft-bottom{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:48px;padding-top:22px;border-top:1px solid var(--line)}
+  .ft-bottom .small{font-size:.8rem;color:var(--ink-soft)}
+  .by{font-size:.8rem;color:var(--ink-soft)}
+  .by a{font-weight:700;color:var(--ink);border-bottom:1.5px solid var(--accent);padding-bottom:1px}
+  .by a:hover{color:var(--accent-deep)}
+  @media(max-width:760px){.ft-top{grid-template-columns:1fr;gap:30px}}
+
+  /* reveal on scroll */
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top" aria-label="Fashion City, Main St Finest, home">
+      <span class="bk">Fashion <em>City</em></span>
+      <span class="sub">The Main St Finest</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="link" href="#lookbook">Lookbook</a>
+      <a class="link" href="#edit">The Edit</a>
+      <a class="link" href="#visit">Visit</a>
+      <a class="call" href="tel:+19734141212" aria-label="Call Fashion City at (973) 414-1212">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
+        <span class="ct">(973) 414-1212</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy rv">
+      <span class="eyebrow">167 Main St · City of Orange, NJ</span>
+      <h1>Dress the<br>part on<br><em>Main</em>.</h1>
+      <p class="lede">A women's boutique on the Orange strip, stocked with new arrivals weekly. Off the rack, into your week, no appointment needed.</p>
+      <div class="hero-meta">
+        <span class="pill status" id="statusPill"><span class="dot"></span><span id="statusText">Checking hours</span></span>
+        <span class="pill">Open 7 days · 9:30 AM to 7 PM</span>
+        <span class="pill">Clothing · Hats · Accessories</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn solid" href="#lookbook">See the lookbook</a>
+        <a class="btn ghost" href="#visit">Find the door</a>
+      </div>
+    </div>
+    <div class="hero-frame rv">
+      <div class="shot">
+        <img src="https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="Inside Fashion City, a row of bold red dresses on display against a bright boutique floor." loading="eager" />
+      </div>
+      <div class="hero-tag">
+        <div class="n">New every week</div>
+        <div class="s">Fresh racks · small drops</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip" aria-hidden="true">
+    <div class="marq">
+      <span>Dresses<b>✦</b>Denim<b>✦</b>Tops &amp; sets<b>✦</b>Hats<b>✦</b>Jewelry<b>✦</b>Knitwear<b>✦</b>Outerwear<b>✦</b>Going-out looks<b>✦</b>Everyday staples<b>✦</b></span>
+      <span>Dresses<b>✦</b>Denim<b>✦</b>Tops &amp; sets<b>✦</b>Hats<b>✦</b>Jewelry<b>✦</b>Knitwear<b>✦</b>Outerwear<b>✦</b>Going-out looks<b>✦</b>Everyday staples<b>✦</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LOOKBOOK (signature: hover-reveal plates) ===== -->
+<section class="sec" id="lookbook">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>The <em>lookbook</em>. Hover a plate to see it styled.</h2>
+      <p class="note">Every plate starts on the rack. Bring it to life and it becomes a finished look you can walk out wearing. Tap on your phone.</p>
+    </div>
+
+    <div class="plates">
+      <!-- Plate 1 -->
+      <article class="plate rv" tabindex="0" aria-label="Look one: gold statement jewelry styled over a little black dress">
+        <div class="layer base"><img src="https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A close rack of clothing on warm wooden hangers, fresh stock waiting to be styled." loading="lazy" /></div>
+        <div class="layer look"><img src="https://images.pexels.com/photos/35638373/pexels-photo-35638373.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A woman in a sleek black top layered with gold statement jewelry." loading="lazy" /></div>
+        <span class="idx">Look 01</span>
+        <span class="hint" aria-hidden="true"></span>
+        <div class="cap"><div class="ttl">The gold case</div><div class="meta"><span class="price">Layered jewelry</span><span class="swatch">Little black dress, dressed up</span></div></div>
+      </article>
+
+      <!-- Plate 2 -->
+      <article class="plate rv" tabindex="0" aria-label="Look two: a denim jacket street look over a casual two-piece">
+        <div class="layer base"><img src="https://images.pexels.com/photos/949674/pexels-photo-949674.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A relaxed everyday look, easy denim and soft layers." loading="lazy" /></div>
+        <div class="layer look"><img src="https://images.pexels.com/photos/1653217/pexels-photo-1653217.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A street style look, a structured plaid coat finished with bold red heels." loading="lazy" /></div>
+        <span class="idx">Look 02</span>
+        <span class="hint" aria-hidden="true"></span>
+        <div class="cap"><div class="ttl">Off duty</div><div class="meta"><span class="price">Denim layer</span><span class="swatch">Comfy base, sharper finish</span></div></div>
+      </article>
+
+      <!-- Plate 3 -->
+      <article class="plate rv" tabindex="0" aria-label="Look three: an athleisure sneaker look swapped from a playful day outfit">
+        <div class="layer base"><img src="https://images.pexels.com/photos/794064/pexels-photo-794064.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A playful day outfit, a plaid mini skirt with a floral-sleeve top, on a yellow backdrop." loading="lazy" /></div>
+        <div class="layer look"><img src="https://images.pexels.com/photos/6835774/pexels-photo-6835774.jpeg?auto=compress&cs=tinysrgb&w=900" alt="An athleisure street look, hoodie, joggers and fresh sneakers." loading="lazy" /></div>
+        <span class="idx">Look 03</span>
+        <span class="hint" aria-hidden="true"></span>
+        <div class="cap"><div class="ttl">Run the day</div><div class="meta"><span class="price">Sets &amp; sneakers</span><span class="swatch">Color now, comfort later</span></div></div>
+      </article>
+
+      <!-- Plate 4 -->
+      <article class="plate rv" tabindex="0" aria-label="Look four: an occasion gown revealed from an everyday casual look">
+        <div class="layer base"><img src="https://images.pexels.com/photos/949670/pexels-photo-949670.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A relaxed everyday look, printed shirt and jeans, seated in a sunlit cafe." loading="lazy" /></div>
+        <div class="layer look"><img src="https://images.pexels.com/photos/2090781/pexels-photo-2090781.jpeg?auto=compress&cs=tinysrgb&w=900" alt="A dressed up look, a tailored tweed set ready for a night out." loading="lazy" /></div>
+        <span class="idx">Look 04</span>
+        <span class="hint" aria-hidden="true"></span>
+        <div class="cap"><div class="ttl">Big night</div><div class="meta"><span class="price">Occasion</span><span class="swatch">From errands to event</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE EDIT ===== -->
+<section class="sec edit" id="edit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Why locals shop <em>the Finest</em>.</h2>
+      <p class="note">No giant mall, no waiting. A tight, well-picked floor a few steps off the bus on Main.</p>
+    </div>
+    <div class="edit-grid">
+      <div class="edit-list">
+        <div class="edit-row rv"><span class="num">01</span><div><h3>New arrivals every week</h3><p>Small drops keep the rack moving, so the dress you spot today probably will not be on five other people by Friday.</p></div></div>
+        <div class="edit-row rv"><span class="num">02</span><div><h3>Dress, hat and accessory under one roof</h3><p>Finish the whole look in one stop. Jewelry, hats and bags sit right beside the clothing they belong with.</p></div></div>
+        <div class="edit-row rv"><span class="num">03</span><div><h3>Real prices, real people</h3><p>Honest Main Street pricing and a staff that will actually tell you what works. Walk in, try it on, walk out wearing it.</p></div></div>
+        <div class="edit-row rv"><span class="num">04</span><div><h3>Open seven days</h3><p>Here every day from 9:30 AM to 7 PM, so the run after work or the Sunday browse both fit.</p></div></div>
+      </div>
+      <div class="edit-shot rv">
+        <img src="https://images.pexels.com/photos/322207/pexels-photo-322207.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A flat-lay of accessories, a belt, scarf, sunglasses, bag and boots laid out to finish a look." loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section class="sec" id="visit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Come find <em>the door</em>.</h2>
+      <p class="note">Right on Main in the City of Orange, easy to reach by bus or on foot. Call ahead and we will set aside a size.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-card rv">
+        <span class="eyebrow">Fashion City · Main St Finest</span>
+        <div class="info-list">
+          <div class="info-row"><span class="k">Address</span><span class="v">167 Main St<br>City of Orange, NJ 07050</span></div>
+          <div class="info-row"><span class="k">Phone</span><span class="v"><a href="tel:+19734141212">(973) 414-1212</a></span></div>
+          <div class="info-row"><span class="k">Status</span><span class="v" id="statusInline">Checking hours</span></div>
+          <div class="info-row"><span class="k">Hours</span><span class="v" id="hoursList"></span></div>
+        </div>
+        <div class="hero-actions" style="margin-top:26px">
+          <a class="btn solid" href="tel:+19734141212">Call the shop</a>
+          <a class="btn ghost" href="https://www.google.com/maps?q=167+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">Get directions</a>
+        </div>
+      </div>
+      <div class="map-wrap rv">
+        <iframe
+          src="https://www.google.com/maps?q=167%20Main%20St%2C%20City%20of%20Orange%2C%20NJ%2007050&z=16&output=embed"
+          loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Map showing Fashion City at 167 Main Street, City of Orange, New Jersey"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="ft">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <div class="bk">Fashion <em>City</em></div>
+        <p>The Main St Finest. A women's clothing and accessory boutique on Main in the City of Orange, New Jersey.</p>
+        <a class="ft-cta" href="tel:+19734141212" aria-label="Call Fashion City at (973) 414-1212">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1l-2.2 2.2z"/></svg>
+          (973) 414-1212
+        </a>
+      </div>
+      <div class="ft-col">
+        <h4>Find us</h4>
+        <a href="https://www.google.com/maps?q=167+Main+St,+City+of+Orange,+NJ+07050" target="_blank" rel="noopener">167 Main St<br>City of Orange, NJ 07050</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#edit">The Edit</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="ft-col">
+        <h4>Hours</h4>
+        <p>Monday to Sunday</p>
+        <p>9:30 AM to 7 PM</p>
+        <p style="color:var(--ink-soft);font-size:.86rem">Open every day</p>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span class="small">© <span id="yr"></span> Fashion City · Main St Finest. All looks in store while they last.</span>
+      <span class="by">Built by <a href="https://bysemaj.com" target="_blank" rel="noopener">bysemaj.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- nav scrolled state ---- */
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>16); };
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* ---- year ---- */
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  /* ---- live Open/Closed (America/New_York), 9:30 AM to 7 PM daily ---- */
+  var OPEN_MIN=9*60+30, CLOSE_MIN=19*60; // 9:30 AM .. 7:00 PM
+  function nyNow(){
+    // get current time in America/New_York reliably
+    var parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'numeric',hour12:false,weekday:'short'}).formatToParts(new Date());
+    var h=0,m=0,wd='';
+    parts.forEach(function(p){ if(p.type==='hour')h=parseInt(p.value,10); if(p.type==='minute')m=parseInt(p.value,10); if(p.type==='weekday')wd=p.value; });
+    if(h===24)h=0;
+    return {min:h*60+m, wd:wd};
+  }
+  function fmt(mins){
+    var h=Math.floor(mins/60), m=mins%60;
+    var ap=h>=12?'PM':'AM'; var hh=h%12; if(hh===0)hh=12;
+    return hh+(m?(':'+(m<10?'0':'')+m):'')+' '+ap;
+  }
+  function updateStatus(){
+    var now=nyNow();
+    var open=now.min>=OPEN_MIN && now.min<CLOSE_MIN;
+    var pill=document.getElementById('statusPill');
+    var txt=document.getElementById('statusText');
+    var inline=document.getElementById('statusInline');
+    pill.classList.remove('open','closed');
+    if(open){
+      pill.classList.add('open');
+      txt.textContent='Open now · until '+fmt(CLOSE_MIN);
+      if(inline) inline.innerHTML='<strong style="color:#1f9d55">Open now</strong> · closes '+fmt(CLOSE_MIN);
+    }else{
+      pill.classList.add('closed');
+      var msg = now.min<OPEN_MIN ? ('Closed · opens '+fmt(OPEN_MIN)) : 'Closed · opens 9:30 AM';
+      txt.textContent=msg;
+      if(inline) inline.innerHTML='<strong style="color:var(--accent-deep)">Closed now</strong> · opens '+(now.min<OPEN_MIN?fmt(OPEN_MIN):'9:30 AM');
+    }
+  }
+  updateStatus(); setInterval(updateStatus,30000);
+
+  /* ---- hours list w/ today highlighted ---- */
+  var days=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var todayWd=nyNow().wd; // short like "Mon"
+  var shortMap={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6};
+  var todayIdx=shortMap[todayWd];
+  var hl=document.getElementById('hoursList');
+  if(hl){
+    var html='';
+    for(var i=0;i<7;i++){
+      var isToday=(i===todayIdx);
+      html+='<div class="hours-line"><span class="d'+(isToday?' today-mark':'')+'">'+days[i]+(isToday?' · today':'')+'</span><span'+(isToday?' class="today-mark"':'')+'>9:30 AM to 7 PM</span></div>';
+    }
+    hl.innerHTML=html;
+  }
+
+  /* ---- signature: tap-to-toggle lookbook plates on touch devices ---- */
+  var isTouch = window.matchMedia('(hover:none)').matches || ('ontouchstart' in window);
+  var plates=document.querySelectorAll('.plate');
+  plates.forEach(function(p){
+    // keyboard support: enter/space toggles
+    p.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); p.classList.toggle('is-on'); }
+    });
+    if(isTouch){
+      p.addEventListener('click',function(){
+        var wasOn=p.classList.contains('is-on');
+        plates.forEach(function(o){o.classList.remove('is-on');});
+        if(!wasOn)p.classList.add('is-on');
+      });
+    }
+  });
+
+  /* ---- reveal on scroll ---- */
+  var rv=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el,i){ el.style.transitionDelay=Math.min(i%4*0.06,0.18)+'s'; io.observe(el); });
+  }else{
+    rv.forEach(function(el){el.classList.add('in');});
+  }
+})();
+</script>
+</body>
+</html>
